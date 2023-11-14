@@ -1,28 +1,18 @@
 import { supabase } from "../../client";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-export default function ExtendedUserSignUpForm() {
-    const [currentUser, setCurrentUser] = useState(null);
-
+export default function ExtendedUserSignUpForm({ userId, externalSetProfile }) {
     const [uniqueUsername, setUniqueUsername] = useState(true);
     const [validUsername, setValidUsername] = useState(false);
     const [profile, setProfile] = useState({
-        user_id: '',
+        user_id: userId,
         username: '',
         bio: 'No bio yet!',
         icon: '',
     });
 
     const navigate = useNavigate();
-    const getCurrentUser = async () => {
-        const { data } = await supabase.auth.getUser();
-        setCurrentUser(data);
-        setProfile({...profile, user_id: data.id});
-    }
 
-    useEffect(() => {
-        getCurrentUser();
-    }, []);
 
     const checkUsernameUniqueness = async (username) => {
         let { data, error } = await supabase
@@ -55,23 +45,17 @@ export default function ExtendedUserSignUpForm() {
         setUniqueUsername(true);
         setValidUsername(false);
         setProfile({
-            user_id: currentUser.id,
+            user_id: userId,
             username: '',
             bio: '',
             icon: '',
         });
     }
 
-    const handleImageUpload = async (e) => {
-        const file = e.target.files[0];
-        const filePath = await uploadImage(file);
-        setProfile({...profile, icon: filePath});
-    }
-
     const uploadImage = async (file) => {
         const fileExt = file.name.split('.').pop();
         const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `images/${fileName}`;
+        const filePath = `${userId}/${fileName}`;
     
         let { error } = await supabase.storage
             .from('profile-icons')
@@ -79,16 +63,25 @@ export default function ExtendedUserSignUpForm() {
     
         if (error) {
             console.error('Error uploading file:', error);
+            console.log('file path: ',filePath);
             return;
         }
 
         return filePath;
     };
 
+    const handleImageUpload = async (e) => {
+        const file = e.target.files[0];
+        const filePath = await uploadImage(file);
+        setProfile({...profile, icon: filePath});
+    }
+
     const handleSignUp = async (e) => {
         e.preventDefault();
-
-
+        if(!profile.icon) {
+            alert('Please upload an icon before continuing.');
+            return;
+        }
         const isUnique = await verifyUsername();
         console.log(isUnique);
         if(isUnique) {
@@ -96,7 +89,7 @@ export default function ExtendedUserSignUpForm() {
                 .from('user_profiles')
                 .insert(profile)
 
-            { (error) ? console.error('Error creating user profile: ', error): (console.log('Success!'),setToDefault(),navigate('/home')) }
+            { (error) ? console.error('Error creating user profile: ', error): (alert('Success!'),setToDefault(), externalSetProfile(profile)) }
         }
         else {
             alert('Sign up failed! Make sure your username is valid.');
@@ -106,7 +99,7 @@ export default function ExtendedUserSignUpForm() {
     return(
         <div>
             {
-                currentUser ?
+                profile ?
                 <form>
                     <label>
                         Username<br/>

@@ -8,7 +8,7 @@ export default function ForgotPasswordForm() {
         e.preventDefault();
 
         try {
-            let { data, error } = await supabase.auth.resetPasswordForEmail(email, {redirectTo:'http://localhost:5173/password-recovery'});
+            let { data, error } = await supabase.auth.resetPasswordForEmail(email, {redirectTo:'https://ccs-spotify-hub.netlify.app/password-recovery'});
             if(error) {
                 if(error.message == 'For security purposes, you can only request this once every 60 seconds') {
                     setFeedback('For security purposes, you can only request this once every 60 seconds.');

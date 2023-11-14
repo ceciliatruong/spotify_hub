@@ -62,7 +62,7 @@ function App() {
         <Route path='sign-up' element={<SignUpPage anonUser={anonUser} userID={userID} currProfile={profile}/>}/>
         <Route path='sign-in' element={<SignInPage anonUser={anonUser} userID={userID} currProfile={profile}/>}/>
         <Route path='home' element={<HomeFeed anonUser={anonUser} userID={userID} currProfile={profile}  searchTerm={searchTerm}/>}/>
-        <Route path='onboarding' element={<ExtendedSignUpPage anonUser={anonUser} userID={userID} currProfile={profile}/>}/>
+        <Route path='onboarding' element={<ExtendedSignUpPage anonUser={anonUser} userID={userID} currProfile={profile} externalSetProfile={setProfile}/>}/>
         <Route path='post/:post_id' element={<ViewPostPage anonUser={anonUser} userID={userID} currProfile={profile}/>}/>
         <Route path='edit-post/:post_id' element={<UpdatePostPage anonUser={anonUser} userID={userID} currProfile={profile}/>}/>
         <Route path='*' element={(<h1>no</h1>)}/>

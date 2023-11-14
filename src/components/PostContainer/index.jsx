@@ -47,11 +47,20 @@ export default function PostContainer({ post_id, anonUser, curr_user_id, user_id
             </div>
             <h2 className="post-title">{title}</h2>
             <p className="post-description">{description}</p>
-            <SpotifyEmbed id={spotify_id} spotify_type={spotify_type} size='152'/>
+            <iframe
+                style={{ borderRadius: '12px' }}
+                src={`https://open.spotify.com/embed/${spotify_type}/${spotify_id}?utm_source=generator`}
+                width="100%"
+                height={`352px`}
+                allowFullScreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                
+                loading="lazy">
+            </iframe>
             <div className="post-likes">
                 Likes: {likeCount}
-                {!anonUser && <button onClick={handleLike} className="like-button">Like</button>}
             </div>
+            {!anonUser && <button onClick={handleLike} className="like-button">Like</button>}
             {user_id === curr_user_id && (
                 <>
                     <Link to={`/edit-post/${post_id}`} className="edit-button">Edit</Link>

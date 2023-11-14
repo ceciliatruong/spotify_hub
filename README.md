@@ -35,7 +35,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] Implemented Supabase's user authentication throughout the website.
+* [x] Implemented Supabase's user authentication throughout the website.
 
 ## Video Walkthrough
 
@@ -51,6 +51,14 @@ GIF created with ...  Licecap!
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
+
+https://ccs-spotify-hub.netlify.app
+
+Notes to self for further implementation:
+- [ ] Implement profile editing page for users to update their information (log in information, account deletion, general profile information)
+- [ ] Let users access their profiles and other people's profiles showing their bio, total likes, number of posts, and all of the posts they've made
+- [ ] Let users only like once per post and comment
+- [ ] Make sure case is handled for when user hasn't finished onboarding and cannot access the site unless they finish their onboarding
 
 Describe any challenges encountered while building the app.
 
