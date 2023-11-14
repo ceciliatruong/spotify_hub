@@ -1,0 +1,68 @@
+
+.comment-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-username {
+    font-weight: bold;
+}
+
+.comment-text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.comment-likes {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.like-button, .edit-button, .delete-button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.like-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.like-button:hover {
+    background-color: #45a049;
+}
+
+.edit-button {
+    background-color: #ffc107;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}

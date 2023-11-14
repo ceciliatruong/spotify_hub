@@ -1,0 +1,122 @@
+nav {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav li {
+    margin-right: 1rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+}
+
+.nav-title {
+    flex-grow: 0;
+    margin-right: auto;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  
+  .user-icon {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+
+  nav div {
+    display: flex;
+    align-items: center;
+  }
+  
+
+  nav p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+nav form {
+    display: flex;
+    margin-right: auto;
+    margin-left: 1rem;
+}
+
+
+nav input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+
+nav button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav button[type="submit"]:hover {
+    background-color: #646cff; 
+}
+
+
+@media (max-width: 768px) {
+    nav form {
+        margin-right: 0.5rem;
+        flex-grow: 1;
+    }
+    
+    nav input[type="text"] {
+        flex-grow: 1; 
+    }
+}
+  .log-out {
+    padding: 0.5rem 1rem;
+    background-color: #333; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1rem; 
+    outline: none; 
+  }
+  
+  .log-out:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #d32f2f;
+  }
+  
+  .log-out:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+    color: #d32f2f;
+  }
