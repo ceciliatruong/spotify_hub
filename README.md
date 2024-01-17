@@ -2,7 +2,7 @@
 
 Submitted by: **Cecilia Truong**
 
-This web app: **This is a discussion forum for registered users to post about their favorite spotify playlists, songs, albums, podcasts, ...etc.**
+This web app: **This is a discussion forum for registered users to post about their favorite spotify playlists, songs, albums, podcasts, ...etc. https://ccs-spotify-hub.netlify.app**
 
 Time spent: **>24** hours spent in total
 
